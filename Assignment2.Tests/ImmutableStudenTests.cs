@@ -19,4 +19,5 @@ public class ImmutableStudentTests
     
         Assert.Equal("ImmutableStudent { Id = 12123, GivenName = Bent, Surname = Peter, Status = Dropout, StartDate = 27-08-2018 00:00:00, EndDate = 15-06-2019 00:00:00, GraduationDate = 01-01-1970 00:00:00 }", ImmutableStudent.ToString());
     }
+    
 }
