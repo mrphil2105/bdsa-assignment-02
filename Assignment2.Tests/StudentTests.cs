@@ -46,6 +46,6 @@ public class StudentTests
         var Student = new Student{Id = 12123, GivenName = "Bent", Surname = "Peter", StartDate = new DateTime(2018, 08, 27),GraduationDate = new DateTime(2021, 06, 15)};
 
     
-        Assert.Equal("Id: 12123, GivenName: Bent, Surname: Peter, Status: Graduated, StartDate: 27-08-2018 00:00:00, EndDate: 01-01-1970 00:00:00, GraduationDate: 15-06-2021 00:00:00", Student.ToString());
+        Assert.Equal("Id: 12123, GivenName: Bent, Surname: Peter, Status: Graduated, StartDate: 27/08/2018 00:00:00, EndDate: 01/01/1970 00:00:00, GraduationDate: 15/06/2021 00:00:00", Student.ToString());
     }
 }
