@@ -37,7 +37,8 @@ public class DelegatesTests
         var i = 42;
 
         // When
-        Func<string, int, bool> d = (s, i) => {
+        Func<string, int, bool> d = (s, i) =>
+        {
             if (int.TryParse(s, out var num))
             {
                 return num == i;
@@ -58,7 +59,8 @@ public class DelegatesTests
         var i = 42;
 
         // When
-        Func<string, int, bool> d = (s, i) => {
+        Func<string, int, bool> d = (s, i) =>
+        {
             if (int.TryParse(s, out var num))
             {
                 return num == i;

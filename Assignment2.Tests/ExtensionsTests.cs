@@ -1,18 +1,17 @@
 namespace Assignment2.Tests;
-using Assignment2;
 
 public class ExtensionsTests
 {
     [Fact]
     public void Test_flatten()
     {
-        var xs = new IEnumerable<int>[] { new List<int> {1,2,3,4}, new List<int> {4,2,3,4}};
+        var xs = new IEnumerable<int>[] { new List<int> { 1, 2, 3, 4 }, new List<int> { 4, 2, 3, 4 } };
 
         // When
         var result = xs.Flatten();
 
         // Then
-        result.Should().BeEquivalentTo(new List<int>{1,2,3,4,4,2,3,4});
+        result.Should().BeEquivalentTo(new List<int> { 1, 2, 3, 4, 4, 2, 3, 4 });
     }
 
     [Fact]
@@ -24,7 +23,7 @@ public class ExtensionsTests
         var result = ys.Filter(x => x % 7 == 0 && x > 42);
 
         // Then
-        result.Should().BeEquivalentTo(new List<int>{49, 56});
+        result.Should().BeEquivalentTo(new List<int> { 49, 56 });
     }
 
     [Fact]
@@ -36,7 +35,7 @@ public class ExtensionsTests
         var result = ys.Filter(x => (x % 4 == 0 && x % 100 != 0) || (x % 4 == 0 && x % 100 == 0 && x % 400 == 0));
 
         // Then
-        result.Should().BeEquivalentTo(new List<int>{2004, 2008, 2012, 2016, 2020});
+        result.Should().BeEquivalentTo(new List<int> { 2004, 2008, 2012, 2016, 2020 });
     }
 
     [Fact]
@@ -48,7 +47,7 @@ public class ExtensionsTests
         var result = ys.Filter(x => (x % 4 == 0 && x % 100 != 0) || (x % 4 == 0 && x % 100 == 0 && x % 400 == 0));
 
         // Then
-        result.Should().BeEquivalentTo(new List<int>{1892, 1896, 1904, 1908});
+        result.Should().BeEquivalentTo(new List<int> { 1892, 1896, 1904, 1908 });
     }
 
     [Fact]

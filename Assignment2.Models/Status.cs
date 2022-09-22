@@ -1,7 +1,7 @@
-public enum Status{
-
+public enum Status
+{
     New,
-    Active, 
-    Dropout, 
+    Active,
+    Dropout,
     Graduated
 }
