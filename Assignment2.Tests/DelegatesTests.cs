@@ -37,7 +37,7 @@ public class DelegatesTests
         var i = 42;
 
         // When
-        Func<string, int, bool> d = delegate(string s, int i) {
+        Func<string, int, bool> d = (s, i) => {
             try {
                 return int.Parse(s) == i;
             }
@@ -58,7 +58,7 @@ public class DelegatesTests
         var i = 42;
 
         // When
-        Func<string, int, bool> d = delegate(string s, int i) {
+        Func<string, int, bool> d = (s, i) => {
             try {
                 return int.Parse(s) == i;
             }
