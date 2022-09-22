@@ -24,9 +24,6 @@ public class DelegatesTests
     
         // When
         Delegates.Product d = (f1, f2) => f1 * f2;
-        // Delegates.Product d = delegate(double f1, double f2) {
-        //     return f1 * f2;
-        // };
     
         // Then
         d(f1,f2).Should().Be(0.42);
