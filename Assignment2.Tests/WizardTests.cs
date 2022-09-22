@@ -7,7 +7,7 @@ public class WizardTests
     {
         var wizards = WizardCollection.Create();
 
-        Assert.Equal(2, wizards.Count());
+        Assert.Equal(10, wizards.Count());
     }
 
     [Theory]
@@ -18,6 +18,13 @@ public class WizardTests
         var wizards = WizardCollection.Create();
 
         Assert.Contains(wizards, w => w == new Wizard(name, medium, year, creator));
+    }
+
+        [Fact]
+    public void QueriesOneTest()
+    {
+       var testOne = Queries.QueriOne();
+       Assert.Equal(new string[]{"Voldemort", "Voldemort", "Harry Potter", "Ron Weasly", "Hermione Granger"}, testOne);
     }
 }
 
