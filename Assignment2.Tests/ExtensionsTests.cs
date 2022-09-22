@@ -61,7 +61,7 @@ public class ExtensionsTests
         var secure = uri.IsSecure();
 
         // Then
-        secure.Should().Be(true);
+        secure.Should().BeTrue();
     }
 
     [Fact]
@@ -74,7 +74,7 @@ public class ExtensionsTests
         var secure = uri.IsSecure();
 
         // Then
-        secure.Should().Be(false);
+        secure.Should().BeFalse();
     }
 
     [Fact]

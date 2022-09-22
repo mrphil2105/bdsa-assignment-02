@@ -47,7 +47,7 @@ public class DelegatesTests
         };
 
         // Then
-        d(s,i).Should().Be(true);
+        d(s,i).Should().BeTrue();
     }
 
     [Fact]
@@ -68,6 +68,6 @@ public class DelegatesTests
         };
 
         // Then
-        d(s,i).Should().Be(false);
+        d(s,i).Should().BeFalse();
     }
 }

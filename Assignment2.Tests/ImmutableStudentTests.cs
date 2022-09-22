@@ -11,7 +11,7 @@ public class ImmutableStudentTests
 
         var immutableStudent2 = new ImmutableStudent { Id = 12123, GivenName = "Bent", Surname = "Peter", StartDate = new DateTime(2018, 08, 27), EndDate = new DateTime(2019, 06, 15) };
 
-        immutableStudent.Equals(immutableStudent2).Should().Be(true);
+        immutableStudent.Equals(immutableStudent2).Should().BeTrue();
     }
 
     [Fact]
@@ -21,7 +21,7 @@ public class ImmutableStudentTests
 
         var student2 = new Student { Id = 12123, GivenName = "Bent", Surname = "Peter", StartDate = new DateTime(2018, 08, 27), EndDate = new DateTime(2019, 06, 15) };
 
-        student.Equals(student2).Should().Be(false);
+        student.Equals(student2).Should().BeFalse();
     }
 
     [Fact]
