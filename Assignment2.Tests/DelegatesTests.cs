@@ -38,12 +38,12 @@ public class DelegatesTests
 
         // When
         Func<string, int, bool> d = (s, i) => {
-            try {
-                return int.Parse(s) == i;
+            if (int.TryParse(s, out var num))
+            {
+                return num == i;
             }
-            catch {
-                return false;
-            }
+
+            return false;
         };
 
         // Then
@@ -59,12 +59,12 @@ public class DelegatesTests
 
         // When
         Func<string, int, bool> d = (s, i) => {
-            try {
-                return int.Parse(s) == i;
+            if (int.TryParse(s, out var num))
+            {
+                return num == i;
             }
-            catch {
-                return false;
-            }
+
+            return false;
         };
 
         // Then
