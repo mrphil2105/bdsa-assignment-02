@@ -20,11 +20,34 @@ public class WizardTests
         Assert.Contains(wizards, w => w == new Wizard(name, medium, year, creator));
     }
 
-        [Fact]
+    [Fact]
     public void QueriesOneTest()
     {
-       var testOne = Queries.QueriOne();
-       Assert.Equal(new string[]{"Voldemort", "Voldemort", "Harry Potter", "Ron Weasly", "Hermione Granger"}, testOne);
+        var testOne = Queries.QueriOne();
+        Assert.Equal(new string[] { "Voldemort", "Voldemort", "Harry Potter", "Ron Weasly", "Hermione Granger" }, testOne);
+    }
+
+        [Fact]
+    public void QueriesTwoTest()
+    {
+        var testOne = Queries.QueriTwo();
+        Assert.Equal(1977, testOne.First());
+    }
+
+        [Fact]
+    public void QueriesThreeTest()
+    {
+        var testOne = Queries.QueriThree();
+        foreach(var item in testOne){
+            Console.WriteLine(item.ToString());
+        }
+    }
+
+        [Fact]
+    public void QueriesFourTest()
+    {
+        var testOne = Queries.QueriOne();
+        Assert.Equal(new string[] { "Voldemort", "Voldemort", "Harry Potter", "Ron Weasly", "Hermione Granger" }, testOne);
     }
 }
 
