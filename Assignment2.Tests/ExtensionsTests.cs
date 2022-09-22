@@ -4,24 +4,24 @@ using Assignment2;
 public class ExtensionsTests
 {
     [Fact]
-    public void Flatten()
+    public void Test_flatten()
     {
         var xs = new IEnumerable<int>[] { new List<int> {1,2,3,4}, new List<int> {4,2,3,4}};
 
         // When
-        var result = xs.SelectMany(c => c);
+        var result = xs.Flatten();
 
         // Then
         result.Should().BeEquivalentTo(new List<int>{1,2,3,4,4,2,3,4});
     }
 
     [Fact]
-    public void Filter()
+    public void Test_filter()
     {
         var ys = Enumerable.Range(0, 60).ToArray();
 
         // When
-        var result = ys.Where(x => x % 7 == 0 && x > 42);
+        var result = ys.Filter(x => x % 7 == 0 && x > 42);
 
         // Then
         result.Should().BeEquivalentTo(new List<int>{49, 56});
@@ -33,7 +33,7 @@ public class ExtensionsTests
         var ys = Enumerable.Range(2002, 20).ToArray();
 
         // When
-        var result = ys.Where(x => (x % 4 == 0 && x % 100 != 0) || (x % 4 == 0 && x % 100 == 0 && x % 400 == 0));
+        var result = ys.Filter(x => (x % 4 == 0 && x % 100 != 0) || (x % 4 == 0 && x % 100 == 0 && x % 400 == 0));
 
         // Then
         result.Should().BeEquivalentTo(new List<int>{2004, 2008, 2012, 2016, 2020});
@@ -45,7 +45,7 @@ public class ExtensionsTests
         var ys = Enumerable.Range(1890, 20).ToArray();
 
         // When
-        var result = ys.Where(x => (x % 4 == 0 && x % 100 != 0) || (x % 4 == 0 && x % 100 == 0 && x % 400 == 0));
+        var result = ys.Filter(x => (x % 4 == 0 && x % 100 != 0) || (x % 4 == 0 && x % 100 == 0 && x % 400 == 0));
 
         // Then
         result.Should().BeEquivalentTo(new List<int>{1892, 1896, 1904, 1908});
