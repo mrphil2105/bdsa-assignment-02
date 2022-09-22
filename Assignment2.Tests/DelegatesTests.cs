@@ -7,10 +7,10 @@ public class DelegatesTests
     {
         // Given
         var words = "This is";
-    
+
         // When
-        Delegates.Reverse r = s => Console.WriteLine(new string(s.ToCharArray().Reverse().ToArray()));
-    
+        Action<string> r = s => Console.WriteLine(new string(s.ToCharArray().Reverse().ToArray()));
+
         // Then
         r(words);
     }
@@ -21,10 +21,10 @@ public class DelegatesTests
         // Given
         var f1 = 0.3;
         var f2 = 1.4;
-    
+
         // When
-        Delegates.Product d = (f1, f2) => f1 * f2;
-    
+        Func<double, double, double> d = (f1, f2) => f1 * f2;
+
         // Then
         d(f1,f2).Should().Be(0.42);
     }
@@ -35,19 +35,20 @@ public class DelegatesTests
         // Given
         var s = " 0042";
         var i = 42;
-    
+
         // When
-        Delegates.IsEqual d = delegate(string s, int i) {
-            try {
-                return int.Parse(s) == i;
+        Func<string, int, bool> d = (s, i) =>
+        {
+            if (int.TryParse(s, out var num))
+            {
+                return num == i;
             }
-            catch {
-                return false;
-            }
+
+            return false;
         };
-    
+
         // Then
-        d(s,i).Should().Be(true);
+        d(s,i).Should().BeTrue();
     }
 
     [Fact]
@@ -56,18 +57,19 @@ public class DelegatesTests
         // Given
         var s = "fwe32";
         var i = 42;
-    
+
         // When
-        Delegates.IsEqual d = delegate(string s, int i) {
-            try {
-                return int.Parse(s) == i;
+        Func<string, int, bool> d = (s, i) =>
+        {
+            if (int.TryParse(s, out var num))
+            {
+                return num == i;
             }
-            catch {
-                return false;
-            }
+
+            return false;
         };
-    
+
         // Then
-        d(s,i).Should().Be(false);
+        d(s,i).Should().BeFalse();
     }
 }
