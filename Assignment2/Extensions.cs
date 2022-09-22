@@ -2,10 +2,6 @@ namespace Assignment2;
 
 public static class Extensions
 {
-    public static IEnumerable<int>[] xs;
-
-    public static int[] ys;
-
     public static bool IsSecure(this Uri uri) => uri.Scheme == Uri.UriSchemeHttps;
 
     public static int WordCount(this string str) =>
