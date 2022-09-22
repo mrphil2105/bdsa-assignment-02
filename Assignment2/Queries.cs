@@ -1,5 +1,4 @@
 namespace Assignment2;
-//using Assignment2;
 
 public class Queries
 {
@@ -7,22 +6,17 @@ public class Queries
     {
         WizardCollection wizardCol = WizardCollection.Create();
 
-        var wizNames = from c in wizardCol
-                       where c.Creator.Contains("Rowling")
-                       select new { c.Name };
-
-        foreach (var w in wizNames) yield return w.Name;
+        return from c in wizardCol
+               where c.Creator.Contains("Rowling")
+               select c.Name;
     }
 
     public static IEnumerable<string> wizardsByRowlingEx()
     {
         WizardCollection wizardCol = WizardCollection.Create();
 
-        var wizNames = wizardCol
-                .Where(c => c.Creator.Contains("Rowling"))
-                .Select(c => new { c.Name });
-
-        foreach (var w in wizNames) yield return w.Name;
+        return wizardCol.Where(c => c.Creator.Contains("Rowling"))
+            .Select(c => c.Name);
     }
 
     public static int firstSithLordLinq()
@@ -32,9 +26,9 @@ public class Queries
         var year = (from c in wizardCol
             where c.Name.Contains("Darth")
             orderby c.Year
-            select new {c.Year}).First();
+            select c.Year).First();
 
-        return year.Year!.Value;
+        return year!.Value;
     }
 
     public static int firstSithLordEx()
@@ -48,51 +42,39 @@ public class Queries
         return year!.Value;
     }
 
-    public static IEnumerable<(string, int)> uniqueListHarryPotterLinq()
+    public static IEnumerable<(string, int?)> uniqueListHarryPotterLinq()
     {
         WizardCollection wizardCol = WizardCollection.Create();
 
-        var wizNames = (from c in wizardCol
-                       where c.Medium.Contains("Harry Potter")
-                       select new { c.Name, c.Year }).Distinct();
-
-        foreach (var w in wizNames) yield return (w.Name, w.Year!.Value);
+        return (from c in wizardCol
+                where c.Medium.Contains("Harry Potter")
+                select ( c.Name, c.Year )).Distinct();
     }
 
-    public static IEnumerable<(string, int)> uniqueListHarryPotterEx()
+    public static IEnumerable<(string, int?)> uniqueListHarryPotterEx()
     {
         WizardCollection wizardCol = WizardCollection.Create();
 
-        var wizNames = wizardCol
-                .Where(c => c.Medium.Contains("Harry Potter"))
-                .Select(c => new { c.Name, c.Year })
-                .Distinct();
-
-        foreach (var w in wizNames) yield return (w.Name, w.Year!.Value);
+        return wizardCol.Where(c => c.Medium.Contains("Harry Potter"))
+            .Select(c => (c.Name, c.Year))
+            .Distinct();
     }
 
     public static IEnumerable<string> wizardNamesLinq()
     {
         WizardCollection wizardCol = WizardCollection.Create();
 
-        var wizNames = from c in wizardCol
-                       orderby c.Creator descending, c.Name
-                       select new { c.Name };
-
-        foreach (var w in wizNames) yield return w.Name;
+        return from c in wizardCol
+               orderby c.Creator descending, c.Name
+               select c.Name;
     }
 
     public static IEnumerable<string> wizardNamesEx()
     {
         WizardCollection wizardCol = WizardCollection.Create();
 
-        var wizNames = wizardCol
-                .OrderByDescending(c => c.Creator)
-                .ThenBy(c => c.Name)
-                .Select(c => new { c.Name });
-
-        foreach (var w in wizNames) yield return w.Name;
+        return wizardCol.OrderByDescending(c => c.Creator)
+            .ThenBy(c => c.Name)
+            .Select(c => c.Name);
     }
-
-
 }
