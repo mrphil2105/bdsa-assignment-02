@@ -58,7 +58,7 @@ public class ExtensionsTests
         var uri = new Uri("https://github.com/itu-bdsa/assignment-02/blob/main/README.md");
     
         // When
-        var secure = uri.isSecure();
+        var secure = uri.IsSecure();
     
         // Then
         secure.Should().Be(true);
@@ -71,7 +71,7 @@ public class ExtensionsTests
         var uri = new Uri("http://www.baidu.com/");
     
         // When
-        var secure = uri.isSecure();
+        var secure = uri.IsSecure();
     
         // Then
         secure.Should().Be(false);

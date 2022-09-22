@@ -6,7 +6,7 @@ public static class Extensions
 
     public static int[] ys;
 
-    public static bool isSecure(this Uri uri) {
+    public static bool IsSecure(this Uri uri) {
         if (uri.Scheme == Uri.UriSchemeHttps) return true;
         else return false;
     }
