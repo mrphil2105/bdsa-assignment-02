@@ -9,7 +9,7 @@ public class Queries
 
         var wizNames = from c in wizardCol
                        where c.Creator.Contains("Rowling")
-                       select new { Name = c.Name };
+                       select new { c.Name };
 
         foreach (var w in wizNames) yield return w.Name;
     }
@@ -20,7 +20,7 @@ public class Queries
 
         var wizNames = wizardCol
                 .Where(c => c.Creator.Contains("Rowling"))
-                .Select(c => new { Name = c.Name });
+                .Select(c => new { c.Name });
 
         foreach (var w in wizNames) yield return w.Name;
     }
@@ -54,7 +54,7 @@ public class Queries
 
         var wizNames = (from c in wizardCol
                        where c.Medium.Contains("Harry Potter")
-                       select new { Name = c.Name, Year = c.Year }).Distinct();
+                       select new { c.Name, c.Year }).Distinct();
 
         foreach (var w in wizNames) yield return (w.Name, w.Year!.Value);
     }
@@ -65,7 +65,7 @@ public class Queries
 
         var wizNames = wizardCol
                 .Where(c => c.Medium.Contains("Harry Potter"))
-                .Select(c => new { Name = c.Name, Year = c.Year })
+                .Select(c => new { c.Name, c.Year })
                 .Distinct();
 
         foreach (var w in wizNames) yield return (w.Name, w.Year!.Value);
@@ -77,7 +77,7 @@ public class Queries
 
         var wizNames = from c in wizardCol
                        orderby c.Creator descending, c.Name
-                       select new { Name = c.Name };
+                       select new { c.Name };
 
         foreach (var w in wizNames) yield return w.Name;
     }
@@ -89,7 +89,7 @@ public class Queries
         var wizNames = wizardCol
                 .OrderByDescending(c => c.Creator)
                 .ThenBy(c => c.Name)
-                .Select(c => new { Name = c.Name });
+                .Select(c => new { c.Name });
 
         foreach (var w in wizNames) yield return w.Name;
     }
