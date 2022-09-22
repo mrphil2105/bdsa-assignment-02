@@ -6,12 +6,8 @@ public static class Extensions
 
     public static int[] ys;
 
-    public static bool IsSecure(this Uri uri) {
-        if (uri.Scheme == Uri.UriSchemeHttps) return true;
-        else return false;
-    }
+    public static bool IsSecure(this Uri uri) => uri.Scheme == Uri.UriSchemeHttps;
 
     public static int WordCount(this string str) =>
         str.Split(new[] { ' ', '.', '?', ',' }, StringSplitOptions.RemoveEmptyEntries).Length;
-
 }
