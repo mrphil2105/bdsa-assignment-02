@@ -9,10 +9,10 @@ public class DelegatesTests
         var words = "This is";
     
         // When
-        Delegates.Reverse r = s => new string(s.ToCharArray().Reverse().ToArray());
+        Delegates.Reverse r = s => Console.WriteLine(new string(s.ToCharArray().Reverse().ToArray()));
     
         // Then
-        r(words).Should().Be("si sihT");
+        r(words);
     }
 
     [Fact]

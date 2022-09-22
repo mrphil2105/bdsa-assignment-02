@@ -1,5 +1,5 @@
 public static class Delegates {
-    public delegate string Reverse(string s); 
+    public delegate void Reverse(string s); 
 
     public delegate double Product(double f1, double f2); 
 
