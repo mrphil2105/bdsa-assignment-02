@@ -25,12 +25,12 @@ public static IEnumerable<int?> QueriTwo(){
     
 }
 
-public static IEnumerable<Tuple<string,int?>> QueriThree(){
+public static IEnumerable<(string, int)> QueriThree(){
     var wizards = WizardCollection.Create();
-    var Queries = from wizard in wizards where wizard.Medium =="Harry Potter" select new Tuple<string, int?>(wizard.Name, wizard.Year);
+    var Queries = (from wizard in wizards where wizard.Medium =="Harry Potter" select new {Name = wizard.Name, Year = wizard.Year}).Distinct();
     foreach (var item in Queries)
     {
-        yield return item;
+        yield return (item.Name, item.Year.Value);
     }
     
 }
